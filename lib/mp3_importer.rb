@@ -1,5 +1,3 @@
-require "pry"
-
 class MP3Importer
   attr_accessor :path, :files
 
@@ -7,11 +5,14 @@ class MP3Importer
     @path = path
   end
 
+  def files
+    @files = Dir.entries(@path).select {|f| !File.directory?(f)}
+  end
+
   def import
-    @files = Dir.entries(@path).select {|f| !File.directory? f}
-    binding.pry
+    self.files.each do |file_name|
+      song = Song.new_by_filename(file_name)
+    end
   end
 
 end
-
-MP3Importer.new("./spec/fixtures/mp3s")
