@@ -1,3 +1,5 @@
+require 'pry'
+
 class MP3Importer
   attr_accessor :file_path
 
@@ -5,6 +7,6 @@ class MP3Importer
     @file_path = file_path
   end
 
-  
+
 
 end
