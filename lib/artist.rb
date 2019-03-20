@@ -12,6 +12,14 @@ class Artist
     @@all
   end
 
+  def self.find_or_create_by_name(name)
+    if self.all.include?(name)
+      name
+    else
+      artist = self.new(name)
+    end
+  end
+
   def songs
     @songs
   end
@@ -24,6 +32,10 @@ class Artist
 
   def save
     self.class.all << self
+  end
+
+  def print_songs
+    self.songs.each {|s| puts "#{s.name}"}
   end
 
 end
