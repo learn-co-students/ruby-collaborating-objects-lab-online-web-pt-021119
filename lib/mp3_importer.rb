@@ -13,10 +13,9 @@ class MP3Importer
   end
 
   def import
-    counter = 0
-    until counter == self.files.size do
-      counter += 1
-      Song.new_by_filename
+    # binding.pry
+    self.files.each do |filepath|
+      Song.new_by_filename(filepath)
     end
   end
 end

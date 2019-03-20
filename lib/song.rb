@@ -14,6 +14,7 @@ class Song
     s.artist.save
     s.artist.songs << s.name
     s
+    #binding.pry
   end
 
 end
