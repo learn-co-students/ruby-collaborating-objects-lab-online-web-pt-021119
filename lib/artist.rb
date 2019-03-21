@@ -26,17 +26,18 @@ class Artist
   end
 
   def self.find_or_create_by_name(artist_name)
+    new_artist = nil
     @@all.each do |artist|
       if artist.name.include?(artist_name)
-        artist
+        new_artist = artist
       else
         new_artist = Artist.new(artist_name)
         @@all << new_artist
-        new_artist
-        binding.pry
       end
     end
-
+    new_artist
   end
+
+  
 
 end
