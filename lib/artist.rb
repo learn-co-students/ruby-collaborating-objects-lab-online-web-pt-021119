@@ -2,11 +2,11 @@ require 'pry'
 
 class Artist
   attr_accessor :name, :songs
-  @@songs = []
   @@all = []
 
   def initialize(name)
     @name = name
+    @@songs = []
   end
 
   def add_song(song)
@@ -38,6 +38,10 @@ class Artist
     new_artist
   end
 
-  
+  def print_songs
+    @@songs.each do |song|
+      puts song.name
+    end
+  end
 
 end
